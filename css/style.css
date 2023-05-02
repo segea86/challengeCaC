@@ -3,21 +3,80 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: Raleway, sans-serif;
+}
+:root{
+    --color-background:rgb(48, 52, 63);
+    --color-background-ligth:rgb(250, 250, 250);
+    --color-primary:rgb(255, 51, 51);
+    --color-secondary:rgb(29, 132, 181);
+    --color-texto: rgb(17, 17, 17);
+    --color-texto-ligth:rgb(255, 255, 255);
+
+    --base-font: Raleway, sans-serif;
+    --alternative-font: Inter, sans-serif;
+
+    --font-display: 4.8em;
+    --font-jumbo: 3.8em;
+    --font-xlarge: 3em;
+    --font-large: 2.4em;
+    --font-medium: 1.8em;
+    --font-small: 1.6em;
+    --font-xsmall: 1.2em;
+
+    --spacing-128:12.8rem;
+    --spacing-64:6.8rem;
+    --spacing-36:3.6rem;
+    --spacing-28:2.8rem;
+    --spacing-16:1.6rem;
+    --spacing-12:1.2rem;
+    --spacing-8:0.8rem;
+}
+
+html{
+    font-size: 62.5%;
+    color: var(--color-texto);
+    font-family: var(--base-font);
+}
+
+header, footer{
+    background-color: var(--color-background);
 }
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #30343F;
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     padding: 3vh 5vw;
 }
+
+/* El navegador tiene sus estilos predeterminados, aparece como User Agent Styles. Conviene quitar esos valores por defecto tanto a los márgenes, como al relleno (padding), etc.*/
+/* Box-sizing: border-box; me sirve para que la caja  siempre mida 300 px y el contenido se acomode. Si en cambio quisiéramos que el contenido se mantenga en 300 px por ej., pero que la caja se agrande,s ería content-box*/
+/* También se suele hacer en las pseudoclases before y after */
+/* A todo esto se le llama normalización de estilos y según el profe de Codo a Codo incluye a las etiquetas p, ul, a, header, footer, */
+/* html{
+    font-size: 62,5%; Esto sirve para pasar de 18 px a 10 px de forma tal que después me sea fácil usar em porque me va a quedar que 1 em = 10 px
+    color: var(--color-texto);
+    font-family: Inter, sans-serif;
+}  */
+/* A veces el user agent styles me sigue poniendo colores que no quiero (por ejemplo, el del lila cuando se le ha hecho click a un enlace, en esos casos conviene poner lo siguiente: */
+/* a{
+    color:inherit
+} */
+/* También otra cosa interesante que hace es predeterminar el ancho máximo de una sección. Crea una clase utilitaria container y le pone el ancho máximo y un margin 0 arriba y abajo pero calculado automáticamente a los costados. */
+/* .container{
+    max-width: 1200px;
+    margin: 0 auto;} */
+
+/* DUDAS: En vez de copiar todo el degradé, no puedo copiar los sólidos y después le pongo la transparencia que quiero directamente? Otra cosa, en vez de poner 62,5% para llevar a 10 px, no me conviene 6,25% y que quede directamente 1 em = 1 px? */
+
 .branding{
     display: flex;
     width:60vw;
     max-height: 100%;
+}
+.branding img{
+    align-self: center;
 }
 .navigation{
     display: flex;
@@ -37,24 +96,85 @@ li{
 a{
     display: flex;
     text-decoration: none;
-    color:white;
+    color:var(--color-texto-ligth);
     font-weight: 500;
-    font-size: 20px;
+    font-size: var(--font-medium);
     align-items: center;
     justify-content: space-around;
 }
 main{
-    min-height:100vh;
+    /* min-height:100vh; */
+    background-color: var(--color-background-ligth);
+}
+.banner{
+    background-image: url(../multimedia/funkos-banner.webp);
+    background-repeat: no-repeat;
+    background-size:100vw;
+    background-position:bottom center;
+    /* backdrop-filter: blur(200px); */
+    min-height: 40vh;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    gap:5vh;
+    padding:3vh 5vw;
+}
+.banner div{
+    display:flex;
+    flex-direction: column;
+    width: fit-content;
+    gap:1vh;
+
+}
+.banner button{
+    font-family:var(--alternative-font);
+    background-color: white;
+    color: var(--color-texto);
+    font-size:2em;
+    border:none;
+    border-radius:50px;
+    width: 211px;
+    height:47px;
+    font-weight: 500;
+}
+.banner div h2{
+    color: white;
+    font-size: 3.8em;
+}
+.banner div p{
+    color:white;
+    font-size:1.8em;
+}
+hr{
+    width:645px;
+    border:1.5px solid var(--color-primary);
+}
+article button{
+    font-family:var(--alternative-font);
+    background-color:var(--color-background);
+    color:white;
+}
+.product-collections{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:repeat(15,auto)
+}
+.product-collection-StarWars img{
+    grid-column: 3;
+    grid-row: 1/5;
+}
+.card{
+    font-family:var(--alternative-font);
 }
 footer{
     display: flex;
     flex-direction: column;
     align-items: space-between;
     justify-content: center;
-    background-color: #30343F;
     width: 100vw;
     height: 30vh;
     padding: 3vh 5vw;
+    gap:2vh;
 }
 footer section{
     display: flex;
@@ -90,4 +210,19 @@ footer p{
     flex-direction: column;
     align-self: center;
     color:white;
+}
+#abrirMenu{
+    display:none;
+}
+/* Ojo con el botón hamburguesa, si no lo ponía con etiqueta de botón me desconfiguraba todo el header, no sé por qué  */
+@media (max-width:900px){
+    #abrirMenu{
+        display:block;
+        color:white;
+        background-color: var(--color-background);
+        border:0;
+    }
+    .navigation{
+        display:none;
+    }
 }
