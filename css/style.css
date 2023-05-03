@@ -1,3 +1,25 @@
+/* NORMALIZACIÓN DE ESTILOS Y MIGRADO DE FIGMA */
+
+/* El navegador tiene sus estilos predeterminados, aparece como User Agent Styles. Conviene quitar esos valores por defecto tanto a los márgenes, como al relleno (padding), etc.*/
+/* Box-sizing: border-box; me sirve para que la caja  siempre mida 300 px y el contenido se acomode. Si en cambio quisiéramos que el contenido se mantenga en 300 px por ej., pero que la caja se agrande,s ería content-box*/
+/* También se suele hacer en las pseudoclases before y after */
+/* A todo esto se le llama normalización de estilos y según el profe de Codo a Codo incluye a las etiquetas p, ul, a, header, footer, */
+/* html{
+    font-size: 62,5%; Esto sirve para pasar de 18 px a 10 px de forma tal que después me sea fácil usar em porque me va a quedar que 1 em = 10 px
+    color: var(--color-texto);
+    font-family: Inter, sans-serif;
+}  */
+/* A veces el user agent styles me sigue poniendo colores que no quiero (por ejemplo, el del lila cuando se le ha hecho click a un enlace, en esos casos conviene poner lo siguiente: */
+/* a{
+    color:inherit
+} */
+/* También otra cosa interesante que hace es predeterminar el ancho máximo de una sección. Crea una clase utilitaria container y le pone el ancho máximo y un margin 0 arriba y abajo pero calculado automáticamente a los costados. */
+/* .container{
+    max-width: 1200px;
+    margin: 0 auto;} */
+
+/* DUDAS: En vez de copiar todo el degradé, no puedo copiar los sólidos y después le pongo la transparencia que quiero directamente? Otra cosa, en vez de poner 62,5% para llevar a 10 px, no me conviene 6,25% y que quede directamente 1 em = 1 px? */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     margin:0;
@@ -37,7 +59,7 @@ html{
     color: var(--color-texto);
     font-family: var(--base-font);
 }
-
+/* INICIO HEADER */
 header, footer{
     background-color: var(--color-background);
 }
@@ -47,28 +69,8 @@ header{
     align-items: center;
     width: 100vw;
     height: 15vh;
-    padding: 3vh 5vw;
+    padding: 4vh 8vw;
 }
-
-/* El navegador tiene sus estilos predeterminados, aparece como User Agent Styles. Conviene quitar esos valores por defecto tanto a los márgenes, como al relleno (padding), etc.*/
-/* Box-sizing: border-box; me sirve para que la caja  siempre mida 300 px y el contenido se acomode. Si en cambio quisiéramos que el contenido se mantenga en 300 px por ej., pero que la caja se agrande,s ería content-box*/
-/* También se suele hacer en las pseudoclases before y after */
-/* A todo esto se le llama normalización de estilos y según el profe de Codo a Codo incluye a las etiquetas p, ul, a, header, footer, */
-/* html{
-    font-size: 62,5%; Esto sirve para pasar de 18 px a 10 px de forma tal que después me sea fácil usar em porque me va a quedar que 1 em = 10 px
-    color: var(--color-texto);
-    font-family: Inter, sans-serif;
-}  */
-/* A veces el user agent styles me sigue poniendo colores que no quiero (por ejemplo, el del lila cuando se le ha hecho click a un enlace, en esos casos conviene poner lo siguiente: */
-/* a{
-    color:inherit
-} */
-/* También otra cosa interesante que hace es predeterminar el ancho máximo de una sección. Crea una clase utilitaria container y le pone el ancho máximo y un margin 0 arriba y abajo pero calculado automáticamente a los costados. */
-/* .container{
-    max-width: 1200px;
-    margin: 0 auto;} */
-
-/* DUDAS: En vez de copiar todo el degradé, no puedo copiar los sólidos y después le pongo la transparencia que quiero directamente? Otra cosa, en vez de poner 62,5% para llevar a 10 px, no me conviene 6,25% y que quede directamente 1 em = 1 px? */
 
 .branding{
     display: flex;
@@ -102,29 +104,31 @@ a{
     align-items: center;
     justify-content: space-around;
 }
+/* FIN HEADER */
 main{
-    /* min-height:100vh; */
+    width: 100vw;
     background-color: var(--color-background-ligth);
 }
+
+/* INICIO BANNER */
 .banner{
     background-image: url(../multimedia/funkos-banner.webp);
     background-repeat: no-repeat;
     background-size:100vw;
     background-position:bottom center;
-    /* backdrop-filter: blur(200px); */
+    /* backdrop-filter: blur(200px); */ /* No sé cómo puedo hacer el difuminado */
     min-height: 40vh;
     justify-content: center;
     display:flex;
     flex-direction: column;
     gap:5vh;
-    padding:3vh 5vw;
+    padding:4vh 8vw;
 }
 .banner div{
     display:flex;
     flex-direction: column;
     width: fit-content;
     gap:1vh;
-
 }
 .banner button{
     font-family:var(--alternative-font);
@@ -145,27 +149,71 @@ main{
     color:white;
     font-size:1.8em;
 }
+/* FIN BANNER */
+
+/* INICIO COLECCIÓN */
+.product-collections{
+    padding: 4vh 8vw;
+}
+.product-collection-StarWars{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.collection-data{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:2vh;
+    
+}
+.collection-data h1{
+    font-size:4.6em;
+}
+.collection-data p{
+    font-size:2.4em;
+    font-weight: 400;
+    width: 45vw;
+}
 hr{
-    width:645px;
-    border:1.5px solid var(--color-primary);
+    width:45vw;
+    border-top:3px solid var(--color-primary);
 }
 article button{
     font-family:var(--alternative-font);
     background-color:var(--color-background);
     color:white;
+    border-radius: 50px;
+    width: 20vw;
+    height: 65px;
+    font-size: 2em;
 }
-.product-collections{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows:repeat(15,auto)
+.product-collection-Pokemon{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.product-collection-StarWars img{
-    grid-column: 3;
-    grid-row: 1/5;
+.Pokemon{
+    order:1;
+}
+.Pokemon-data{
+    order:2;
+}
+.product-collection-HarryPotter{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.latest-products{
+    padding: 4vh 8vw;
+    display: flex;
 }
 .card{
     font-family:var(--alternative-font);
 }
+/* INICIO FOOTER */
+
 footer{
     display: flex;
     flex-direction: column;
@@ -173,7 +221,7 @@ footer{
     justify-content: center;
     width: 100vw;
     height: 30vh;
-    padding: 3vh 5vw;
+    padding: 4vh 8vw;
     gap:2vh;
 }
 footer section{
@@ -211,6 +259,9 @@ footer p{
     align-self: center;
     color:white;
 }
+
+/* FIN FOOTER */
+
 #abrirMenu{
     display:none;
 }
