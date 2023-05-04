@@ -88,6 +88,32 @@ a{
 main{
     display: flex;
     padding:4vh 8vw;
+    gap:var(--spacing-16);
+}
+label{
+    font-size:var(--font-large);
+    font-family: var(--alternative-font);
+    font-weight: 500;
+    width: 100%;
+}
+.aside-menu{
+    display:flex;
+    flex-direction: column;
+    gap:var(--spacing-28);
+    width:20vw;
+}
+#filtro-checkbox{
+    display: flex;
+    flex-direction: column;
+    gap:var(--spacing-16);
+}
+h3{
+    font-size:var(--font-large);
+    font-weight: 500;
+}
+#filtro-checkbox label{
+    font-size:var(--font-medium);
+    
 }
 .grid-container{
     display:grid;

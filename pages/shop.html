@@ -31,9 +31,22 @@
     </header>
     <main>
         <section class="aside-menu">
-            <label>
-                BUSCAR
-            </label>   
+            <label for="buscador">BUSCAR</label>   
+            <input type="search" id="buscador" name="buscador" placeholder="Escriba aquí su búsqueda">
+            <label for="ordenar">ORDENAR POR:</label>
+            <select id="ordenar" name="ordenar" placeholder="Mayor a menor">
+                <option value="precioDecreciente">De mayor a menor precio</option>
+                <option value="precioCreciente">De menor a mayor precio</option>
+                <option value="alfabetoCreciente">Personajes de la A la Z</option>
+                <option value="alfabetoDecreciente">Personajes de la Z a la A</option>
+            </select>
+            <div id="filtro-checkbox">
+                <h3>FILTRAR</h3>
+                <label for="nuevos"><input type="checkbox" id="nuevos">NUEVOS</label>
+                <label for="ofertas"><input type="checkbox" id="ofertas">OFERTAS</label>
+                <label for="edicionEspecial"><input type="checkbox" id="edicionEspecial">EDICIÓN ESPECIAL</label>
+                <label for="ofertas"><input type="checkbox" id="favoritos">FAVORITOS</label>
+            </div>
         </section>
         <section class="grid-container">
             <div class="card">
