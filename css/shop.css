@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    --color-background:rgb(48, 52, 63);
+    --color-background-ligth:rgb(250, 250, 250);
+    --color-primary:rgb(255, 51, 51);
+    --color-secondary:rgb(29, 132, 181);
+    --color-texto: rgb(17, 17, 17);
+    --color-texto2:rgb(51, 51, 51);
+    --color-texto-ligth:rgb(255, 255, 255);
+
+    --base-font: Raleway, sans-serif;
+    --alternative-font: Inter, sans-serif;
+
+    --font-display: 4.8em;
+    --font-jumbo: 3.8em;
+    --font-xlarge: 3em;
+    --font-large: 2.4em;
+    --font-medium: 1.8em;
+    --font-small: 1.6em;
+    --font-xsmall: 1.2em;
+
+    --spacing-128:12.8rem;
+    --spacing-64:6.8rem;
+    --spacing-36:3.6rem;
+    --spacing-28:2.8rem;
+    --spacing-16:1.6rem;
+    --spacing-12:1.2rem;
+    --spacing-8:0.8rem;
+}
+
+html{
+    font-size: 62.5%;
+    color: var(--color-texto);
+    font-family: var(--base-font);
+}
+/* INICIO HEADER */
+header, footer{
+    background-color: var(--color-background);
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 15vh;
+    padding: 4vh 8vw;
+}
+
+.branding{
+    display: flex;
+    width:60vw;
+    max-height: 100%;
+}
+.branding img{
+    align-self: center;
+}
+.navigation{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width:40vw;
+}
+ul{
+    display:flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap:var(--spacing-36);
+}
+li{
+    display:flex;
+}
+a{
+    display: flex;
+    text-decoration: none;
+    color:var(--color-texto-ligth);
+    font-weight: 500;
+    font-size: var(--font-medium);
+    align-items: center;
+    justify-content: space-around;
+}
+/* FIN HEADER */
+
+/* INICIO FOOTER */
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    width: 100vw;
+    height: 30vh;
+    padding: 4vh 8vw;
+    gap:2vh;
+}
+footer section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+footer section div{
+    max-width: 100%;
+    max-height: 100%;
+}
+footer section div.navigation{
+    display: flex;
+    justify-content: flex-start;
+}
+footer section .navigation ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    gap:var(--spacing-12);
+}
+footer section .branding{
+    display: flex;
+    max-width:20vw;
+    max-height: 100%;
+    justify-content: flex-end;
+}
+footer p{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    color:white;
+}
+
+/* FIN FOOTER */
+
+#abrirMenu{
+    display:none;
+}
+/* Ojo con el botón hamburguesa, si no lo ponía con etiqueta de botón me desconfiguraba todo el header, no sé por qué  */
+@media (max-width:900px){
+    #abrirMenu{
+        display:block;
+        color:white;
+        background-color: var(--color-background);
+        border:0;
+    }
+    .navigation{
+        display:none;
+    }
+}
