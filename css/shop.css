@@ -100,20 +100,44 @@ label{
     display:flex;
     flex-direction: column;
     gap:var(--spacing-28);
-    width:20vw;
+    width:15vw;
+}
+h3{
+    font-size:var(--font-large);
+    font-weight: 500;
+}
+select{
+    border-radius: 6px;
+    border:2px solid var(--color-background);
+}
+input{
+    border-radius: 6px;
+    border:2px solid var(--color-background);
+}
+#filtro-precio{
+    display: flex;
+    gap:var(--spacing-12);
+    align-items: center;
+}
+#filtro-precio label{
+    font-size:var(--font-small);
+}
+#filtro-precio input{
+    width:50px;
+    height: 25px;
+    text-align: center;
 }
 #filtro-checkbox{
     display: flex;
     flex-direction: column;
     gap:var(--spacing-16);
 }
-h3{
-    font-size:var(--font-large);
-    font-weight: 500;
-}
 #filtro-checkbox label{
     font-size:var(--font-medium);
-    
+}
+#filtro-checkbox input{
+    width:25px;
+    height:25px; 
 }
 .grid-container{
     display:grid;
